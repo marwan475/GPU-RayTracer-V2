@@ -10,8 +10,11 @@ Engine.o: Engine.cpp
 Window.o: src/Window.cpp
 	g++ src/Window.cpp -c -o Window.o -I./src/headers -I./external
 
-GPUEngine: Engine.o Window.o
-	g++ Engine.o Window.o external/glad.c -o GPUEngine.exe -lglfw3 -lm -I./external
+GLshader.o: src/GLshader.cpp
+	g++ src/GLshader.cpp -c -o GLshader.o -I./src/headers -I./external
+
+GPUEngine: Engine.o Window.o GLshader.o
+	g++ Engine.o Window.o GLshader.o external/glad.c -o GPUEngine.exe -lglfw3 -lm -I./external
 
 clean:
 	rm -f *.o GPUEngine.exe
