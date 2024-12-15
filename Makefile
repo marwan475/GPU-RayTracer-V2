@@ -1,6 +1,9 @@
 
 all: GPUEngine
 
+run:
+	./GPUEngine.exe
+
 Engine.o: Engine.cpp
 	g++ Engine.cpp -c -o Engine.o -I./src/headers -I./external
 

@@ -9,7 +9,13 @@ class Window {
     public:
         GLFWwindow* window;
 
-        Window(int width, int height, char* windowname);
+        Window(int width, int height, const char* windowname);
+
+        void handleInput();
+
+        int WindowClosed();
+
+        void RenderFrame();
 };
 
 #endif
