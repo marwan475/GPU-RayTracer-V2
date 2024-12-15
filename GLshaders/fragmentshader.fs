@@ -3,7 +3,6 @@ out vec4 FragColor;
 
 in vec2 Texcoord;
 
-uniform vec4 color;
 uniform sampler2D myTexture;
 
 void main()

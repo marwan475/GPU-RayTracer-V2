@@ -13,8 +13,11 @@ Window.o: src/Window.cpp
 GLshader.o: src/GLshader.cpp
 	g++ src/GLshader.cpp -c -o GLshader.o -I./src/headers -I./external
 
-GPUEngine: Engine.o Window.o GLshader.o
-	g++ Engine.o Window.o GLshader.o external/glad.c -o GPUEngine.exe -lglfw3 -lm -I./external
+GLviewport.o: src/GLviewport.cpp
+	g++ src/GLviewport.cpp -c -o GLviewport.o -I./src/headers -I./external
+
+GPUEngine: Engine.o Window.o GLshader.o GLviewport.o
+	g++ Engine.o Window.o GLshader.o GLviewport.o external/glad.c -o GPUEngine.exe -lglfw3 -lm -I./external
 
 clean:
 	rm -f *.o GPUEngine.exe
